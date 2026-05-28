@@ -10,5 +10,15 @@ public class Traversal {
     root.right.left = new TreeNode(-3);
     root.right.right = new TreeNode(5);
     root.right.right.right = new TreeNode(22);
+
+    preorder(root);
+  }
+
+  public static void preorder(TreeNode current) {
+    if (current == null) return;
+    System.out.println(current.bleepbloop);
+
+    preorder(current.left);
+    preorder(current.right);
   }
 }
