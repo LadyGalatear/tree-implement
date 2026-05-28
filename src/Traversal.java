@@ -11,14 +11,32 @@ public class Traversal {
     root.right.right = new TreeNode(5);
     root.right.right.right = new TreeNode(22);
 
-    preorder(root);
+    // preorder(root);
+    // postorder(root);
+    inorder(root);
   }
 
   public static void preorder(TreeNode current) {
     if (current == null) return;
-    System.out.println(current.bleepbloop);
 
+    System.out.println(current.bleepbloop);
     preorder(current.left);
     preorder(current.right);
+  }
+
+  public static void postorder(TreeNode current) {
+    if (current == null) return;
+
+    postorder(current.left);
+    postorder(current.right);
+    System.out.println(current.bleepbloop);
+  }
+
+  public static void inorder(TreeNode current) {
+    if (current == null) return;
+
+    postorder(current.left);
+    System.out.println(current.bleepbloop);
+    postorder(current.right);
   }
 }
