@@ -29,8 +29,7 @@ public class Traversal {
   }
 
   public static int countNodes(TreeNode<?> current) {
-    if (current == null) return 0;
-    return 1 + countNodes(current.left) + countNodes(current.right);
+    return current == null ? 0 : 1 + countNodes(current.left) + countNodes(current.right);
   }
 
   public static void printGreaterThan(TreeNode<Integer> current, int threshold) {
