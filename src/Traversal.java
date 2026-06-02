@@ -1,20 +1,20 @@
 public class Traversal {
   public static void main(String[] args) {
-    TreeNode<Integer> root = new TreeNode<Integer>(10);
+    TreeNode<Integer> root = new TreeNode<>(10);
 
-    root.left = new TreeNode<Integer>(9);
-    root.left.left = new TreeNode<Integer>(5);
-    root.left.right = new TreeNode<Integer>(2);
+    root.left = new TreeNode<>(9);
+    root.left.left = new TreeNode<>(5);
+    root.left.right = new TreeNode<>(2);
 
-    root.right = new TreeNode<Integer>(15);
-    root.right.left = new TreeNode<Integer>(-3);
-    root.right.right = new TreeNode<Integer>(5);
-    root.right.right.right = new TreeNode<Integer>(22);
+    root.right = new TreeNode<>(15);
+    root.right.left = new TreeNode<>(-3);
+    root.right.right = new TreeNode<>(5);
+    root.right.right.right = new TreeNode<>(22);
 
     // preorder(root);
     // postorder(root);
     // inorder(root);
-    printGreaterThan(root, 0);
+    printGreaterThan(root, 9);
   }
 
   public static void printGreaterThan(TreeNode<Integer> current, int threshold) {
@@ -28,7 +28,10 @@ public class Traversal {
     printGreaterThan(current.right, threshold);
   }
 
-  public static void preorder(TreeNode<Integer> current) {
+  // public static void preorder(TreeNode<?> current)
+  // public static <E> void preorder(TreeNode<E> current)
+
+  public static void preorder(TreeNode<?> current) {
     if (current == null) return;
 
     System.out.println(current.bleepbloop);
@@ -36,7 +39,7 @@ public class Traversal {
     preorder(current.right);
   }
 
-  public static void postorder(TreeNode<Integer> current) {
+  public static void postorder(TreeNode<?> current) {
     if (current == null) return;
 
     postorder(current.left);
@@ -44,7 +47,7 @@ public class Traversal {
     System.out.println(current.bleepbloop);
   }
 
-  public static void inorder(TreeNode<Integer> current) {
+  public static void inorder(TreeNode<?> current) {
     if (current == null) return;
 
     postorder(current.left);
