@@ -16,6 +16,17 @@ public class Traversal {
     inorder(root);
   }
 
+  public static void printGreaterThan(TreeNode current, int threshold) {
+    if (current == null) return;
+
+    if (current.bleepbloop > threshold) {
+      System.out.println(current.bleepbloop);
+    }
+
+    printGreaterThan(current.left, threshold);
+    printGreaterThan(current.right, threshold);
+  }
+
   public static void preorder(TreeNode current) {
     if (current == null) return;
 
