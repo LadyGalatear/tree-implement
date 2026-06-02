@@ -11,10 +11,26 @@ public class Traversal {
     root.right.right = new TreeNode<>(5);
     root.right.right.right = new TreeNode<>(22);
 
-    // preorder(root);
+    TreeNode<String> stringRoot = new TreeNode<>("my hero");
+    stringRoot.left = new TreeNode<>("yayayay");
+    stringRoot.left.left = new TreeNode<>("mmmmrrr");
+    stringRoot.left.right = new TreeNode<>("body horror is awesome");
+
+    stringRoot.right = new TreeNode<>("ZA WARUDO");
+    stringRoot.right.left = new TreeNode<>("wryyyyy");
+    stringRoot.right.right = new TreeNode<>("oraoraora");
+    stringRoot.right.right.right = new TreeNode<>("mudamudamuda");
+
+    // preorder(stringRoot);
     // postorder(root);
     // inorder(root);
-    printGreaterThan(root, 9);
+    // printGreaterThan(root, 9);
+    System.out.println(countNodes(stringRoot));
+  }
+
+  public static int countNodes(TreeNode<?> current) {
+    if (current == null) return 0;
+    return 1 + countNodes(current.left) + countNodes(current.right);
   }
 
   public static void printGreaterThan(TreeNode<Integer> current, int threshold) {
