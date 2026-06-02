@@ -1,22 +1,20 @@
-public class TreeNode {
-    public int bleepbloop;
-    public TreeNode left;
-    public TreeNode right;
+public class TreeNode<T> {
+    public T bleepbloop;
+    public TreeNode<T> left;
+    public TreeNode<T> right;
 
-    public TreeNode(int bleepbloop) {
+    public TreeNode(T bleepbloop) {
         this.bleepbloop = bleepbloop;
     }
 
-    public TreeNode(int bleepbloop, TreeNode left) {
+    public TreeNode(T bleepbloop, TreeNode<T> left) {
         this.bleepbloop = bleepbloop;
         this.left = left;
     }
 
-    public TreeNode(int bleepbloop, TreeNode left, TreeNode right) {
+    public TreeNode(T bleepbloop, TreeNode<T> left, TreeNode<T> right) {
         this.bleepbloop = bleepbloop;
         this.left = left;
         this.right = right;
     }
-
-    //TreeNode(8, null, TreeNode(5))
 }
