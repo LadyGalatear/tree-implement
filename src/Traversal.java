@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class Traversal {
   public static void main(String[] args) {
     TreeNode<Integer> root = new TreeNode<>(10);
@@ -21,11 +25,22 @@ public class Traversal {
     stringRoot.right.right = new TreeNode<>("oraoraora");
     stringRoot.right.right.right = new TreeNode<>("mudamudamuda");
 
+    TreeNode<Integer> superRoot = new TreeNode<Integer>(1);
+    TreeNode<Integer> current = superRoot;
+
+    for (int i = 2; i < 100_001; i++) {
+      current.right = new TreeNode<Integer>(i);
+      current = current.right;
+    }
+
+    // preorderIterative(superRoot);
+    levelorder(root);
+
     // preorder(stringRoot);
     // postorder(root);
     // inorder(root);
     // printGreaterThan(root, 9);
-    System.out.println(countNodes(stringRoot));
+    // System.out.println(countNodes(stringRoot));
   }
 
   public static int countNodes(TreeNode<?> current) {
@@ -43,6 +58,19 @@ public class Traversal {
     printGreaterThan(current.right, threshold);
   }
 
+  public static void levelorder(TreeNode<?> root) {
+    Queue<TreeNode<?>> queue = new LinkedList<>();
+    queue.offer(root);
+
+    while(!queue.isEmpty()) {
+      TreeNode<?> current = queue.remove();
+      if (current == null) continue;
+      System.out.println(current.bleepbloop);
+      queue.offer(current.left);
+      queue.offer(current.right);
+    }
+  }
+
   // public static void preorder(TreeNode<?> current)
   // public static <E> void preorder(TreeNode<E> current)
 
@@ -54,6 +82,21 @@ public class Traversal {
     preorder(current.right);
   }
 
+  public static void preorderIterative(TreeNode<?> root) {
+    Stack<TreeNode<?>> stack = new Stack<>();
+    stack.push(root);
+
+    while (!stack.isEmpty()) {
+      TreeNode<?> current = stack.pop();
+
+      if (current == null) continue;
+
+      System.out.println(current.bleepbloop);
+      stack.push(current.right);
+      stack.push(current.left);
+    }
+  }
+
   public static void postorder(TreeNode<?> current) {
     if (current == null) return;
 
@@ -62,11 +105,42 @@ public class Traversal {
     System.out.println(current.bleepbloop);
   }
 
+  public static void postorderIterative(TreeNode<?> root) {
+    Stack<TreeNode<?>> stack = new Stack<>();
+    stack.push(root);
+
+    while (!stack.isEmpty()) {
+      TreeNode<?> current = stack.pop();
+
+      if (current == null) continue;
+
+      stack.push(current.right);
+      stack.push(current.left);
+      System.out.println(current.bleepbloop);
+    }
+  }
+
+
   public static void inorder(TreeNode<?> current) {
     if (current == null) return;
 
     postorder(current.left);
     System.out.println(current.bleepbloop);
     postorder(current.right);
+  }
+
+    public static void inorderIterative(TreeNode<?> root) {
+    Stack<TreeNode<?>> stack = new Stack<>();
+    stack.push(root);
+
+    while (!stack.isEmpty()) {
+      TreeNode<?> current = stack.pop();
+
+      if (current == null) continue;
+
+      stack.push(current.right);
+      System.out.println(current.bleepbloop);
+      stack.push(current.left);
+    }
   }
 }
